@@ -11,19 +11,16 @@
 </head>
 <style>
     body {
-        height: 80vh;
+        height: 90vh;
         background: cyan;
-        position:relative;
-        padding:0;
-        margin:0;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
 
     .container{
-        height:300px;
-        position:absolute;
-        bottom: -60px;
-        left: 50%;
-        transform: translate(-50%,0);
+       
         border: 0px solid black;
         display: flex;
         justify-content: center;
@@ -31,37 +28,29 @@
         flex-direction: column;
     }
 
-     img{
-        height:100vh;
-        position:absolute;
-        top:0;
-        left: 50%;
-        transform: translate(-50%,0);
-    }
-    
     .go {
-    height: 100px;
-    width: 250px;
-    border-radius: 20px;
+    height: 2.2em;
+    width: 6em;
+    border-radius: 1em;
     border: none;
     background: rgb(0, 83, 0);
     font-size: 2.5em;
     color: white;
     font-weight: bolder;
     text-decoration: none;
-    margin: 10px;
+    margin: .3em;
+    cursor: pointer;
 }
 
     .go:active {
-        height: 95px;
-        width: 295px;
+        height: 2.25em;
+        width: 6.05em;
         font-size: 2.93em;
-        margin: 15px;
+        margin: .25em;
     }
 </style>
 
 <body>
-    <img src="bg.jpg"/>
     <div class="container">
     <p id="points"></p>
     <input class="go" type="button" onclick="points(10)" value="30 or 50">
@@ -262,7 +251,8 @@
             "Vietnam",
             "Yemen",
             "Zambia",
-            "Zimbabwe"];
+            "Zimbabwe",
+            "Banana", "Orange", "Apple", "Mango", "Pineapple", "Watermelon", "Kiwi", "Papaya", "Grapes", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cherry", "Peach", "Plum", "Apricot", "Pear", "Lemon", "Lime", "Grapefruit", "Tangerine", "Clementine", "Mandarin Orange", "Passionfruit", "Dragonfruit", "Starfruit", "Guava", "Lychee", "Mangoosteen", "Pomegranate", "Fig", "Date Fruit", "Coconut Fruit Meat (Raw)", "Avocado (Raw)", "Jackfruit (Raw)", "Durian (Raw)", "Persimmon (Raw)", "Kumquat (Raw)", "Cantaloupe Melon (Raw)", "Honeydew Melon (Raw)", "Watermelon (Raw)", 	"Cherimoya (Raw)", 	"Feijoa (Raw)", 	"Gooseberries (Raw)", 	"Elderberries (Raw)", 	"Black Currants (Raw)", 	"Red Currants (Raw)", 	"White Currants (Raw)", 	"Goji Berries (Dried)", 	"Acai Berries (Freeze-Dried Powder)", 	"Cranberries (Dried Sweetened)", 	"Raisins (Seedless)", 	"Sultanas (Seedless Golden Raisins)", 	"Prunes (Dried Plums)"];    
     var myWindow = [];
     var times = 0;
     function points(minPoints){
