@@ -1,1 +1,302 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌼तितिल</title>
+</head>
+<style>
+    body {
+        height: 80vh;
+        background: cyan;
+        position:relative;
+        padding:0;
+        margin:0;
+    }
+
+    .container{
+        height:300px;
+        position:absolute;
+        bottom: -60px;
+        left: 50%;
+        transform: translate(-50%,0);
+        border: 0px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+     img{
+        height:100vh;
+        position:absolute;
+        top:0;
+        left: 50%;
+        transform: translate(-50%,0);
+    }
+    
+    .go {
+    height: 100px;
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    background: rgb(0, 83, 0);
+    font-size: 2.5em;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    margin: 10px;
+}
+
+    .go:active {
+        height: 95px;
+        width: 295px;
+        font-size: 2.93em;
+        margin: 15px;
+    }
+</style>
+
+<body>
+    <img src="bg.jpg"/>
+    <div class="container">
+    <p id="points"></p>
+    <input class="go" type="button" onclick="points(10)" value="30 or 50">
+    <input class="go" type="button" onclick="points(20)" value="60 or 100">
+    <input class="go" type="button" onclick="points(30)" value="90 or 150">
+    </div>
+</body>
+<script>
+    var keys =
+        ["Albania",
+            "Algeria",
+            "Andorra",
+            "Angola",
+            "Antigua and Barbuda",
+            "Argentina",
+            "Armenia",
+            "Australia",
+            "Austria",
+            "Azerbaijan",
+            "Bahamas",
+            "Bahrain",
+            "Bangladesh",
+            "Barbados",
+            "Belarus",
+            "Belgium",
+            "Belize",
+            "Benin",
+            "Bhutan",
+            "Bolivia",
+            "Bosnia and Herzegovina",
+            "Botswana",
+            "Brazil",
+            "Brunei",
+            "Bulgaria",
+            "Burkina Faso",
+            "Burundi",
+            "Cambodia",
+            "Cameroon",
+            "Canada",
+            "Cape Verde",
+            "Central African Republic",
+            "Chad",
+            "Chile",
+            "China",
+            "Colombi",
+            "Comoros",
+            "Congo (Brazzaville)",
+            "Congo",
+            "Costa Rica",
+            "Cote d'Ivoire",
+            "Croatia",
+            "Cuba",
+            "Cyprus",
+            "Czech Republic",
+            "Denmark",
+            "Djibouti",
+            "Dominica",
+            "Dominican Republic",
+            "East Timor (Timor Timur)",
+            "Ecuador",
+            "Egypt",
+            "El Salvador",
+            "Equatorial Guinea",
+            "Eritrea",
+            "Estonia",
+            "Ethiopia",
+            "Fiji",
+            "Finland",
+            "France",
+            "Gabon",
+            "Gambia, The",
+            "Georgia",
+            "Germany",
+            "Ghana",
+            "Greece",
+            "Grenada",
+            "Guatemala",
+            "Guinea",
+            "Guinea-Bissau",
+            "Guyana",
+            "Haiti",
+            "Honduras",
+            "Hungary",
+            "Iceland",
+            "India",
+            "Indonesia",
+            "Iran",
+            "Iraq",
+            "Ireland",
+            "Israel",
+            "Italy",
+            "Jamaica",
+            "Japan",
+            "Jordan",
+            "Kazakhstan",
+            "Kenya",
+            "Kiribati",
+            "Korea, North",
+            "Korea, South",
+            "Kuwait",
+            "Kyrgyzstan",
+            "Laos",
+            "Latvia",
+            "Lebanon",
+            "Lesotho",
+            "Liberia",
+            "Libya",
+            "Liechtenstein",
+            "Lithuania",
+            "Luxembourg",
+            "Macedonia",
+            "Madagascar",
+            "Malawi",
+            "Malaysia",
+            "Maldives",
+            "Mali",
+            "Malta",
+            "Marshall Islands",
+            "Mauritania",
+            "Mauritius",
+            "Mexico",
+            "Micronesia",
+            "Moldova",
+            "Monaco",
+            "Mongolia",
+            "Morocco",
+            "Mozambique",
+            "Myanmar",
+            "Namibia",
+            "Nauru",
+            "Nepal",
+            "Netherlands",
+            "New Zealand",
+            "Nicaragua",
+            "Niger",
+            "Nigeria",
+            "Norway",
+            "Oman",
+            "Pakistan",
+            "Palau",
+            "Panama",
+            "Papua New Guinea",
+            "Paraguay",
+            "Peru",
+            "Philippines",
+            "Poland",
+            "Portugal",
+            "Qatar",
+            "Romania",
+            "Russia",
+            "Rwanda",
+            "Saint Kitts and Nevis",
+            "Saint Lucia",
+            "Saint Vincent",
+            "Samoa",
+            "San Marino",
+            "Sao Tome and Principe",
+            "Saudi Arabia",
+            "Senegal",
+            "Serbia and Montenegro",
+            "Seychelles",
+            "Sierra Leone",
+            "Singapore",
+            "Slovakia",
+            "Slovenia",
+            "Solomon Islands",
+            "Somalia",
+            "South Africa",
+            "Spain",
+            "Sri Lanka",
+            "Sudan",
+            "Suriname",
+            "Swaziland",
+            "Sweden",
+            "Switzerland",
+            "Syria",
+            "Taiwan",
+            "Tajikistan",
+            "Tanzania",
+            "Thailand",
+            "Togo",
+            "Tonga",
+            "Trinidad and Tobago",
+            "Tunisia",
+            "Turkey",
+            "Turkmenistan",
+            "Tuvalu",
+            "Uganda",
+            "Ukraine",
+            "United Arab Emirates",
+            "United Kingdom",
+            "United States",
+            "Uruguay",
+            "Uzbekistan",
+            "Vanuatu",
+            "Vatican City",
+            "Venezuela",
+            "Vietnam",
+            "Yemen",
+            "Zambia",
+            "Zimbabwe"];
+    var myWindow = [];
+    var times = 0;
+    function points(minPoints){
+        times = minPoints;
+        go();
+       /* if (minPoints<=90)
+            times = minPoints;
+            go();
+        }
+        else{
+            alert("Sorry, there can not be more than 30 tabs!");
+        }
+       */
+    }
+    
+    function go() {
+        for (let i = 0; i < times; i++) {
+            var q = "https://www.bing.com/search?q=";
+            var index = Math.floor(Math.random() * 100);
+            var indexi = Math.floor(Math.random() * 100);
+            var indexj = Math.floor(Math.random() * 100);
+            var openl = q + keys[index] + " " + keys[indexi] + " " + keys[indexj];
+            var links = window.open(openl, "_blank");
+            myWindow.push(links);
+        }
+    }
+    function closed() {
+        for (let i = 0; i < myWindow.length; i++) {
+            myWindow[i].close();
+        }
+    }
+
+    
+    
+    
+</script>
+</html>
