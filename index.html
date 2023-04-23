@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,20 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/R.0bfc2c6b2a27ae00a91418ad5232147f?rik=oXgHNdw0ruN7iA&riu=http%3a%2f%2fwww.possum.co.uk%2fwp-content%2fuploads%2f2017%2f11%2fButterfly-large-favicon.png&ehk=K7JrXiSuDzDw1xARKQgoA2mVJCHZvQeYSCsD51m46aM%3d&risl=&pid=ImgRaw&r=0">
     <title>🌼तितिल</title>
 </head>
 <style>
     body {
+        background: black;
+        position: relative;
         height: 90vh;
-        background: cyan;
         display:flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        flex-direction: column;
+        margin:0;
+        padding:0;
     }
 
-    .container{
-       
+    .container {
+
         border: 0px solid black;
         display: flex;
         justify-content: center;
@@ -29,34 +31,42 @@
     }
 
     .go {
-    height: 2.2em;
-    width: 6em;
-    border-radius: 1em;
-    border: none;
-    background: rgb(0, 83, 0);
-    font-size: 2.5em;
-    color: white;
-    font-weight: bolder;
-    text-decoration: none;
-    margin: .3em;
-    cursor: pointer;
-}
+        height: 2.2em;
+        width: 6em;
+        border-radius: 1em;
+        border: none;
+        background:rgb(0 43 83);;
+        font-size: 2.5em;
+        color: white;
+        font-weight: bolder;
+        text-decoration: none;
+        margin: .3em;
+        cursor: pointer;
+    }
 
     .go:active {
-        height: 2.25em;
-        width: 6.05em;
-        font-size: 2.93em;
-        margin: .25em;
+        
+        font-size: 2.7em;
+    }
+    #close-tabs{
+        height: 3em;
+        width: 8em;
+        font-size: 2.5em;
+        padding: 1em;
+        background-color: red;
+        color: black;
     }
 </style>
 
 <body>
+    <button class="go" id="close-tabs" onclick="closeTabs()">Close Tabs</button>
     <div class="container">
-    <p id="points"></p>
-    <input class="go" type="button" onclick="points(10)" value="30 or 50">
-    <input class="go" type="button" onclick="points(20)" value="60 or 100">
-    <input class="go" type="button" onclick="points(30)" value="90 or 150">
+        <p id="points"></p>
+        <input class="go" type="button" onclick="tabs(10)" value="30 or 50">
+        <input class="go" type="button" onclick="tabs(20)" value="60 or 100">
+        <input class="go" type="button" onclick="tabs(30)" value="90 or 150">
     </div>
+    
 </body>
 <script>
     var keys =
@@ -252,22 +262,22 @@
             "Yemen",
             "Zambia",
             "Zimbabwe",
-            "Banana", "Orange", "Apple", "Mango", "Pineapple", "Watermelon", "Kiwi", "Papaya", "Grapes", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cherry", "Peach", "Plum", "Apricot", "Pear", "Lemon", "Lime", "Grapefruit", "Tangerine", "Clementine", "Mandarin Orange", "Passionfruit", "Dragonfruit", "Starfruit", "Guava", "Lychee", "Mangoosteen", "Pomegranate", "Fig", "Date Fruit", "Coconut Fruit Meat (Raw)", "Avocado (Raw)", "Jackfruit (Raw)", "Durian (Raw)", "Persimmon (Raw)", "Kumquat (Raw)", "Cantaloupe Melon (Raw)", "Honeydew Melon (Raw)", "Watermelon (Raw)", 	"Cherimoya (Raw)", 	"Feijoa (Raw)", 	"Gooseberries (Raw)", 	"Elderberries (Raw)", 	"Black Currants (Raw)", 	"Red Currants (Raw)", 	"White Currants (Raw)", 	"Goji Berries (Dried)", 	"Acai Berries (Freeze-Dried Powder)", 	"Cranberries (Dried Sweetened)", 	"Raisins (Seedless)", 	"Sultanas (Seedless Golden Raisins)", 	"Prunes (Dried Plums)"];    
-    var myWindow = [];
+            "Banana", "Orange", "Apple", "Mango", "Pineapple", "Watermelon", "Kiwi", "Papaya", "Grapes", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cherry", "Peach", "Plum", "Apricot", "Pear", "Lemon", "Lime", "Grapefruit", "Tangerine", "Clementine", "Mandarin Orange", "Passionfruit", "Dragonfruit", "Starfruit", "Guava", "Lychee", "Mangoosteen", "Pomegranate", "Fig", "Date Fruit", "Coconut Fruit Meat (Raw)", "Avocado (Raw)", "Jackfruit (Raw)", "Durian (Raw)", "Persimmon (Raw)", "Kumquat (Raw)", "Cantaloupe Melon (Raw)", "Honeydew Melon (Raw)", "Watermelon (Raw)", "Cherimoya (Raw)", "Feijoa (Raw)", "Gooseberries (Raw)", "Elderberries (Raw)", "Black Currants (Raw)", "Red Currants (Raw)", "White Currants (Raw)", "Goji Berries (Dried)", "Acai Berries (Freeze-Dried Powder)", "Cranberries (Dried Sweetened)", "Raisins (Seedless)", "Sultanas (Seedless Golden Raisins)", "Prunes (Dried Plums)"];
+    
     var times = 0;
-    function points(minPoints){
+    function tabs(minPoints) {
         times = minPoints;
         go();
-       /* if (minPoints<=90)
-            times = minPoints;
-            go();
-        }
-        else{
-            alert("Sorry, there can not be more than 30 tabs!");
-        }
-       */
+        /* if (minPoints<=90)
+             times = minPoints;
+             go();
+         }
+         else{
+             alert("Sorry, there can not be more than 30 tabs!");
+         }
+        */
     }
-    
+    var myWindow = [];
     function go() {
         for (let i = 0; i < times; i++) {
             var q = "https://www.bing.com/search?q=";
@@ -279,14 +289,15 @@
             myWindow.push(links);
         }
     }
-    function closed() {
+    function closeTabs() {
         for (let i = 0; i < myWindow.length; i++) {
             myWindow[i].close();
         }
     }
 
-    
-    
-    
+
+
+
 </script>
+
 </html>
