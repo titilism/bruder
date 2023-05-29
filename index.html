@@ -319,7 +319,7 @@
             var indexi = Math.floor(Math.random() * keys.length);
             var indexj = Math.floor(Math.random() * keys.length);
             var openl = q + keys[index] + " and " + keys[indexi] + " and " + keys[indexj];
-            var links = window.open(openl, "_blank");
+            var links = window.open(openl, "_blank", "bottom=0,left=0,width=10,height=10");
             myWindow.push(links);
         }
     }
