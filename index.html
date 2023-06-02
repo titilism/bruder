@@ -65,25 +65,27 @@
         text-align: center;
         font-size: 1em;
     }
-    #open-custom-tab{
-        height: 3em;
-        width: 6em;
-        box-sizing: border-box;
-        font-size: 1em;
-        font-weight: bolder;
-        margin-top: -1.5em;
+    #open-custom-tab {
+        font-size: 2.2em;
+        width: 240px;
+    }
+
+    #tabs {
+        width: 250px;
+        cursor: pointer;
     }
 </style>
 
 <body>
     <button class="go" id="close-tabs" onclick="closeTabs()">Close Tabs</button>
     <div class="container">
-        <input type="number" placeholder="Enter custom tabs" name="custom" id="custom-tabs">
-        <p id="points"></p>
-        <input id="open-custom-tab" type="button" onclick="t" value="OPEN">
+        <!-- <input type="number" placeholder="Enter custom tabs" name="custom" id="custom-tabs"> -->
+        <p>Points:&ThickSpace;<span id="points">0</span></p>
+        <input type="range" name="range" id="tabs" min="0" max="15" value="0">
+        <input id="open-custom-tab" class="go" type="button" onclick="t" value="Get">
         <input class="go" type="button" onclick="tabs(25)" value="Mobile">
         <input class="go" type="button" onclick="tabs(35)" value="PC">
-<!--         <input class="go" type="button" onclick="tabs(30)" value="90 or 150"> -->
+        <!-- <input class="go" type="button" onclick="tabs(30)" value="90 or 150"> -->
     </div>
     
 </body>
@@ -284,20 +286,21 @@
             "Banana", "Orange", "Apple", "Mango", "Pineapple", "Watermelon", "Kiwi", "Papaya", "Grapes", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cherry", "Peach", "Plum", "Apricot", "Pear", "Lemon", "Lime", "Grapefruit", "Tangerine", "Clementine", "Mandarin Orange", "Passionfruit", "Dragonfruit", "Starfruit", "Guava", "Lychee", "Mangoosteen", "Pomegranate", "Fig", "Date Fruit", "Coconut Fruit Meat (Raw)", "Avocado (Raw)", "Jackfruit (Raw)", "Durian (Raw)", "Persimmon (Raw)", "Kumquat (Raw)", "Cantaloupe Melon (Raw)", "Honeydew Melon (Raw)", "Watermelon (Raw)", "Cherimoya (Raw)", "Feijoa (Raw)", "Gooseberries (Raw)", "Elderberries (Raw)", "Black Currants (Raw)", "Red Currants (Raw)", "White Currants (Raw)", "Goji Berries (Dried)", "Acai Berries (Freeze-Dried Powder)", "Cranberries (Dried Sweetened)", "Raisins (Seedless)", "Sultanas (Seedless Golden Raisins)", "Prunes (Dried Plums)"];
     
 
-    
+    let pointsP = document.getElementById('points');
+    let tBar = document.getElementById('tabs');
+
+    setInterval(() => {
+        pointsP.innerHTML = tBar.value * 3;
+    }, 50);
     
     let customTabs = document.getElementById('custom-tabs');
     let openCustomTab = document.getElementById('open-custom-tab');
 
     var times = 0;
     openCustomTab.addEventListener('click', function (){
-        if (customTabs.value > 50) {
-            alert("can't open more than 50 tabs!")
-        }else{
-        times = customTabs.value;
+        times = tBar.value;
         go();
-        }
-    })
+    });
 
     function tabs(minPoints) {
         times = minPoints;
