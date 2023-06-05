@@ -88,7 +88,7 @@
         <input class="go" type="button" onclick="tabs(35)" id='pc' value="PC">
         <!-- <input class="go" type="button" onclick="tabs(30)" value="90 or 150"> -->
     </div>
-    
+    <p id='wh'></p>
 </body>
 <script>
 
@@ -295,6 +295,7 @@
     let tBar = document.getElementById('tabs');
     let mobile = document.getElementById('mobile');
     let pc = document.getElementById('pc');
+    let wh = document.getElementById('wh');
     
     
 
@@ -302,9 +303,11 @@
         pointsP.innerHTML = tBar.value * 3;
         if(window.innerWidth > 350){
             mobile.style.display = 'none';
+            wh.innerHTML = window.innerWidth +'x'+window.innerHeight;
         }else{
             pc.style.display = 'none';
         }
+        wh.innerHTML = window.innerWidth +'x'+window.innerHeight;
     }, 50);
     
     let customTabs = document.getElementById('custom-tabs');
