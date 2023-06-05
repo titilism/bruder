@@ -277,7 +277,7 @@
     var myWindow = [];
     function go() {
         let randomBlog = Math.floor(Math.random() * blogList.length);
-        if(times != 0){
+        if(tBar.value == 0){
             let blog = window.open(blogList[randomBlog], "_blank", "bottom=0,left=0,width=10,height=10");
             myWindow.push(blog);
         }
