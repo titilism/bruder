@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/R.0bfc2c6b2a27ae00a91418ad5232147f?rik=oXgHNdw0ruN7iA&riu=http%3a%2f%2fwww.possum.co.uk%2fwp-content%2fuploads%2f2017%2f11%2fButterfly-large-favicon.png&ehk=K7JrXiSuDzDw1xARKQgoA2mVJCHZvQeYSCsD51m46aM%3d&risl=&pid=ImgRaw&r=0">
+    <link rel="icon" type="image/x-icon"
+        href="https://th.bing.com/th/id/R.0bfc2c6b2a27ae00a91418ad5232147f?rik=oXgHNdw0ruN7iA&riu=http%3a%2f%2fwww.possum.co.uk%2fwp-content%2fuploads%2f2017%2f11%2fButterfly-large-favicon.png&ehk=K7JrXiSuDzDw1xARKQgoA2mVJCHZvQeYSCsD51m46aM%3d&risl=&pid=ImgRaw&r=0">
     <title>🌼तितिल</title>
 </head>
 <style>
@@ -13,19 +14,20 @@
         background: rgb(0, 0, 0);
         position: relative;
         height: 90vh;
-        display:flex;
+        width: 100vw;
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin:0;
-        padding:0;
+        margin: 0;
+        padding: 0;
         color: white;
         font-family: sans-serif;
+        font-size: 3vh;
     }
 
     .container {
 
-        border: 0px solid black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,46 +36,77 @@
 
     .go {
         text-align: center;
-        height: 2em;
-        width: 6em;
-        border-radius: 1em;
+        height: 10vh;
+        width: 30vw;
+        border-radius: 3vh;
         border: none;
-/*         background:rgb(0 43 83); */
+        /*         background:rgb(0 43 83); */
         background-color: white;
-        font-size: 2.5em;
+        font-size: 4vh;
         color: black;
         font-weight: bolder;
         text-decoration: none;
-        margin: .3em;
+        margin: 1vh;
         cursor: pointer;
     }
 
     /* .go:active {
         margin-top: 10px;
     } */
-    #close-tabs{
-        height: 2em;
-        width: 8em;
-        font-size: 2em;
-        padding: 0;
+    #close-tabs {
+        height: 10vh;
+        width: 30vw;
         background-color: red;
         color: black;
     }
-    #custom-tabs{
-        height: 1em;
-        border-radius: 20px;
-        padding: 1em;
+
+    #custom-tabs {
+        height: 10vh;
+        border-radius: 5vh;
+        padding: .5vh;
         text-align: center;
-        font-size: 1em;
     }
+
     #open-custom-tab {
-        font-size: 2.2em;
-        width: 240px;
+        font-size: 4vh;
+        width: 30vw;
     }
 
     #tabs {
-        width: 250px;
+        -webkit-appearance: none;
+        width: 30vw;
         cursor: pointer;
+    }
+    
+    #tabs::-webkit-slider-runnable-track {
+        border-radius: 4vh;
+        background: white;
+        height: 2vh;
+        border-radius: 40vh;
+    }
+
+    #tabs::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 4vh;
+        height: 4vh;
+        background: blue;
+        cursor: pointer;
+        border-radius: 10vh;
+        margin-top: -1vh;
+    }
+
+    #tabs::-moz-range-thumb {
+        width: 4vh;
+        height: 4vh;
+        background: blue;
+        cursor: pointer;
+        border-radius: 10vh;
+    }
+
+    #wh {
+        position: fixed;
+        bottom: 5vh;
     }
 </style>
 
@@ -88,13 +121,13 @@
         <input class="go" type="button" onclick="tabs(35)" id='pc' value="PC">
         <!-- <input class="go" type="button" onclick="tabs(30)" value="90 or 150"> -->
     </div>
-    <p id='wh'>0x0</p>
+    <p id='wh'>000x000</p>
 </body>
 <script>
 
-    
-    
-    
+
+
+
     var keys =
         ["Albania",
             "Algeria",
@@ -289,32 +322,31 @@
             "Zambia",
             "Zimbabwe",
             "Banana", "Orange", "Apple", "Mango", "Pineapple", "Watermelon", "Kiwi", "Papaya", "Grapes", "Strawberry", "Blueberry", "Raspberry", "Blackberry", "Cherry", "Peach", "Plum", "Apricot", "Pear", "Lemon", "Lime", "Grapefruit", "Tangerine", "Clementine", "Mandarin Orange", "Passionfruit", "Dragonfruit", "Starfruit", "Guava", "Lychee", "Mangoosteen", "Pomegranate", "Fig", "Date Fruit", "Coconut Fruit Meat (Raw)", "Avocado (Raw)", "Jackfruit (Raw)", "Durian (Raw)", "Persimmon (Raw)", "Kumquat (Raw)", "Cantaloupe Melon (Raw)", "Honeydew Melon (Raw)", "Watermelon (Raw)", "Cherimoya (Raw)", "Feijoa (Raw)", "Gooseberries (Raw)", "Elderberries (Raw)", "Black Currants (Raw)", "Red Currants (Raw)", "White Currants (Raw)", "Goji Berries (Dried)", "Acai Berries (Freeze-Dried Powder)", "Cranberries (Dried Sweetened)", "Raisins (Seedless)", "Sultanas (Seedless Golden Raisins)", "Prunes (Dried Plums)"];
-    
+
 
     let pointsP = document.getElementById('points');
     let tBar = document.getElementById('tabs');
     let mobile = document.getElementById('mobile');
     let pc = document.getElementById('pc');
     let wh = document.getElementById('wh');
-    
-    
+
+    if (window.innerWidth > 500) {
+        mobile.style.display = 'none';
+        wh.innerHTML = window.innerWidth + 'x' + window.innerHeight;
+    } else {
+        pc.style.display = 'none';
+    }
+    wh.innerHTML = window.innerWidth + 'x' + window.innerHeight;
 
     setInterval(() => {
         pointsP.innerHTML = tBar.value * 3;
-        if(window.innerWidth > 500){
-            mobile.style.display = 'none';
-            wh.innerHTML = window.innerWidth +'x'+window.innerHeight;
-        }else{
-            pc.style.display = 'none';
-        }
-        wh.innerHTML = window.innerWidth +'x'+window.innerHeight;
     }, 50);
-    
+
     let customTabs = document.getElementById('custom-tabs');
     let openCustomTab = document.getElementById('open-custom-tab');
 
     var times = 0;
-    openCustomTab.addEventListener('click', function (){
+    openCustomTab.addEventListener('click', function () {
         times = tBar.value;
         go();
     });
@@ -344,17 +376,17 @@
             myWindow.push(links);
         }
         let randomBlog = Math.floor(Math.random() * blogList.length);
-        let blog =  window.open(blogList[randomBlog], "_blank", "bottom=0,left=0,width=10,height=10");
+        let blog = window.open(blogList[randomBlog], "_blank", "bottom=0,left=0,width=10,height=10");
         myWindow.push(blog);
     }
     function closeTabs() {
         for (let i = 0; i < myWindow.length; i++) {
             myWindow[i].close();
         }
-        
+
     }
 
-    
+
 
 
 
