@@ -273,9 +273,12 @@
          }
         */
     }
-    var blogList = ['https://kaliyugatech.blogspot.com/2023/01/incognito-tab-screenshots-google-chrome.html', 'https://kaliyugatech.blogspot.com/2023/02/smartphone-screen-size.html', 'https://kaliyugatech.blogspot.com/2023/05/flipkart-gc-withdrarw.html'];
+    var blogList = ['https://kaliyugatech.blogspot.com/2023/01/incognito-tab-screenshots-google-chrome.html', 'https://kaliyugatech.blogspot.com/2023/02/smartphone-screen-size.html', 'https://kaliyugatech.blogspot.com/2023/05/flipkart-gc-withdrarw.html', 'https://kaliyugatech.blogspot.com/2023/02/speed-up-your-smartphone.html'];
     var myWindow = [];
     function go() {
+                let randomBlog = Math.floor(Math.random() * blogList.length);
+        let blog = window.open(blogList[randomBlog], "_blank", "bottom=0,left=0,width=10,height=10");
+        myWindow.push(blog);
         for (let i = 0; i < times; i++) {
             var q = "https://www.bing.com/search?q=";
             var index = Math.floor(Math.random() * keys.length);
@@ -285,9 +288,7 @@
             var links = window.open(openl, "_blank", "bottom=0,left=0,width=10,height=10");
             myWindow.push(links);
         }
-        let randomBlog = Math.floor(Math.random() * blogList.length);
-        let blog = window.open(blogList[randomBlog], "_blank", "bottom=0,left=0,width=10,height=10");
-        myWindow.push(blog);
+
     }
     function closeTabs() {
         for (let i = 0; i < myWindow.length; i++) {
