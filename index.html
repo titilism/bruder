@@ -84,13 +84,23 @@
         <p>Points:&ThickSpace;<span id="points">0</span></p>
         <input type="range" name="range" id="tabs" min="0" max="15" value="0">
         <input id="open-custom-tab" class="go" type="button" onclick="t" value="Get">
-        <input class="go" type="button" onclick="tabs(25)" value="Mobile">
-        <input class="go" type="button" onclick="tabs(35)" value="PC">
+        <input class="go" type="button" onclick="tabs(25)" id='mobile' value="Mobile">
+        <input class="go" type="button" onclick="tabs(35)" id='pc' value="PC">
         <!-- <input class="go" type="button" onclick="tabs(30)" value="90 or 150"> -->
     </div>
     
 </body>
 <script>
+    let mobile = document.getElementById('mobile');
+    let pc = document.getElementById('pc');
+    if(window.innerWidth > 400){
+        mobile.style.display = 'none';
+    }else{
+        pc.style.display = 'none';
+    }
+    
+    
+    
     var keys =
         ["Albania",
             "Algeria",
