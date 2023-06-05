@@ -91,13 +91,7 @@
     
 </body>
 <script>
-    let mobile = document.getElementById('mobile');
-    let pc = document.getElementById('pc');
-    if(window.innerWidth > 400){
-        mobile.style.display = 'none';
-    }else{
-        pc.style.display = 'none';
-    }
+
     
     
     
@@ -299,9 +293,18 @@
 
     let pointsP = document.getElementById('points');
     let tBar = document.getElementById('tabs');
+    let mobile = document.getElementById('mobile');
+    let pc = document.getElementById('pc');
+    
+    
 
     setInterval(() => {
         pointsP.innerHTML = tBar.value * 3;
+        if(window.innerWidth > 350){
+            mobile.style.display = 'none';
+        }else{
+            pc.style.display = 'none';
+        }
     }, 50);
     
     let customTabs = document.getElementById('custom-tabs');
